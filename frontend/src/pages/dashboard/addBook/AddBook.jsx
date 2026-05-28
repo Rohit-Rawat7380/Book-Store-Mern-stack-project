@@ -101,6 +101,7 @@ const AddBook = () => {
           label="Old Price"
           name="oldPrice"
           type="number"
+          steps="0.01"
           placeholder="Old Price"
           register={register}
          
@@ -111,6 +112,7 @@ const AddBook = () => {
           label="New Price"
           name="newPrice"
           type="number"
+          steps="0.01"
           placeholder="New Price"
           register={register}
           

@@ -3,6 +3,8 @@ const app = express();
 const cors = require("cors");
 
 const mongoose = require("mongoose");
+const dns = require('dns');
+dns.setServers(['8.8.8.8', '8.8.4.4']);
 const port = process.env.PORT || 5000;
 require('dotenv').config()
 

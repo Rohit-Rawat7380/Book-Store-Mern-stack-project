@@ -5,6 +5,7 @@ import Loading from '../../components/Loading';
 import getBaseUrl from '../../utils/baseURL';
 import { MdIncompleteCircle } from 'react-icons/md'
 import RevenueChart from './RevenueChart';
+import StudentsChart from './StudentsChart';
 
 const Dashboard = () => {
     const [loading, setLoading] = useState(true);
@@ -129,59 +130,43 @@ const Dashboard = () => {
                 <div className="overflow-y-auto" style={{maxHeight: '24rem'}}>
                   <ul className="p-6 space-y-6">
                     <li className="flex items-center">
-                      <div className="h-10 w-10 mr-3 bg-gray-100 rounded-full overflow-hidden">
-                        <img src="https://randomuser.me/api/portraits/women/82.jpg" alt="Annette Watson profile picture"/>
-                      </div>
-                      <span className="text-gray-600">Annette Watson</span>
+                      <div className="h-10 w-10 mr-3 rounded-full bg-indigo-500 text-white flex items-center justify-center font-semibold">AS</div>
+                      <span className="text-gray-600">Ananya Sharma</span>
                       <span className="ml-auto font-semibold">9.3</span>
                     </li>
                     <li className="flex items-center">
-                      <div className="h-10 w-10 mr-3 bg-gray-100 rounded-full overflow-hidden">
-                        <img src="https://randomuser.me/api/portraits/men/81.jpg" alt="Calvin Steward profile picture"/>
-                      </div>
-                      <span className="text-gray-600">Calvin Steward</span>
+                      <div className="h-10 w-10 mr-3 rounded-full bg-emerald-500 text-white flex items-center justify-center font-semibold">RP</div>
+                      <span className="text-gray-600">Rohan Patel</span>
                       <span className="ml-auto font-semibold">8.9</span>
                     </li>
                     <li className="flex items-center">
-                      <div className="h-10 w-10 mr-3 bg-gray-100 rounded-full overflow-hidden">
-                        <img src="https://randomuser.me/api/portraits/men/80.jpg" alt="Ralph Richards profile picture"/>
-                      </div>
-                      <span className="text-gray-600">Ralph Richards</span>
+                      <div className="h-10 w-10 mr-3 rounded-full bg-yellow-500 text-white flex items-center justify-center font-semibold">AV</div>
+                      <span className="text-gray-600">Amit Verma</span>
                       <span className="ml-auto font-semibold">8.7</span>
                     </li>
                     <li className="flex items-center">
-                      <div className="h-10 w-10 mr-3 bg-gray-100 rounded-full overflow-hidden">
-                        <img src="https://randomuser.me/api/portraits/men/79.jpg" alt="Bernard Murphy profile picture"/>
-                      </div>
-                      <span className="text-gray-600">Bernard Murphy</span>
+                      <div className="h-10 w-10 mr-3 rounded-full bg-pink-500 text-white flex items-center justify-center font-semibold">SK</div>
+                      <span className="text-gray-600">Siddharth Kumar</span>
                       <span className="ml-auto font-semibold">8.2</span>
                     </li>
                     <li className="flex items-center">
-                      <div className="h-10 w-10 mr-3 bg-gray-100 rounded-full overflow-hidden">
-                        <img src="https://randomuser.me/api/portraits/women/78.jpg" alt="Arlene Robertson profile picture"/>
-                      </div>
-                      <span className="text-gray-600">Arlene Robertson</span>
+                      <div className="h-10 w-10 mr-3 rounded-full bg-sky-500 text-white flex items-center justify-center font-semibold">PS</div>
+                      <span className="text-gray-600">Priya Singh</span>
                       <span className="ml-auto font-semibold">8.2</span>
                     </li>
                     <li className="flex items-center">
-                      <div className="h-10 w-10 mr-3 bg-gray-100 rounded-full overflow-hidden">
-                        <img src="https://randomuser.me/api/portraits/women/77.jpg" alt="Jane Lane profile picture"/>
-                      </div>
-                      <span className="text-gray-600">Jane Lane</span>
+                      <div className="h-10 w-10 mr-3 rounded-full bg-fuchsia-500 text-white flex items-center justify-center font-semibold">NG</div>
+                      <span className="text-gray-600">Neha Gupta</span>
                       <span className="ml-auto font-semibold">8.1</span>
                     </li>
                     <li className="flex items-center">
-                      <div className="h-10 w-10 mr-3 bg-gray-100 rounded-full overflow-hidden">
-                        <img src="https://randomuser.me/api/portraits/men/76.jpg" alt="Pat Mckinney profile picture"/>
-                      </div>
-                      <span className="text-gray-600">Pat Mckinney</span>
+                      <div className="h-10 w-10 mr-3 rounded-full bg-rose-500 text-white flex items-center justify-center font-semibold">VJ</div>
+                      <span className="text-gray-600">Vikram Joshi</span>
                       <span className="ml-auto font-semibold">7.9</span>
                     </li>
                     <li className="flex items-center">
-                      <div className="h-10 w-10 mr-3 bg-gray-100 rounded-full overflow-hidden">
-                        <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Norman Walters profile picture"/>
-                      </div>
-                      <span className="text-gray-600">Norman Walters</span>
+                      <div className="h-10 w-10 mr-3 rounded-full bg-cyan-500 text-white flex items-center justify-center font-semibold">KM</div>
+                      <span className="text-gray-600">Karan Mehta</span>
                       <span className="ml-auto font-semibold">7.7</span>
                     </li>
                   </ul>
@@ -190,13 +175,11 @@ const Dashboard = () => {
               <div className="flex flex-col row-span-3 bg-white shadow rounded-lg">
                 <div className="px-6 py-5 font-semibold border-b border-gray-100">Students by type of studying</div>
                 <div className="p-4 flex-grow">
-                  <div className="flex items-center justify-center h-full px-4 py-24 text-gray-400 text-3xl font-semibold bg-gray-100 border-2 border-gray-200 border-dashed rounded-md">Chart</div>
+                  <StudentsChart />
                 </div>
               </div>
             </section>
-            <section className="text-right font-semibold text-gray-500">
-              <a href="#" className="text-purple-600 hover:underline">Recreated on Codepen</a> with <a href="https://tailwindcss.com/" className="text-teal-400 hover:underline">Tailwind CSS</a> by Azri Kahar, <a href="https://dribbble.com/shots/10711741-Free-UI-Kit-for-Figma-Online-Courses-Dashboard" className="text-purple-600 hover:underline">original design</a> made by Chili Labs
-            </section>
+            
     </>
   )
 }

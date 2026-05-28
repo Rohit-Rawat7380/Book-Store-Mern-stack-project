@@ -7,11 +7,37 @@ import { HiViewGridAdd } from "react-icons/hi";
 import { MdOutlineManageHistory } from "react-icons/md";
 
 const DashboardLayout = () => {
+  const [adminName, setAdminName] = useState('Admin');
   
   const navigate = useNavigate()
+  
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    if(token) {
+      try {
+        const payload = JSON.parse(atob(token.split('.')[1]));
+        setAdminName(payload.username || 'Admin');
+      } catch(error) {
+        console.log('Error decoding token:', error);
+      }
+    }
+  }, []);
+  
   const handleLogout = () => {
     localStorage.removeItem('token');
     navigate("/")
+  }
+  
+  // Generate avatar initials
+  const getAvatarInitials = (name) => {
+    return name.slice(0, 2).toUpperCase();
+  }
+  
+  // Generate avatar background color based on name
+  const getAvatarColor = (name) => {
+    const colors = ['bg-purple-500', 'bg-blue-500', 'bg-green-500', 'bg-pink-500', 'bg-orange-500'];
+    const index = name.charCodeAt(0) % colors.length;
+    return colors[index];
   }
 
   return (
@@ -72,11 +98,11 @@ const DashboardLayout = () => {
           <button className="inline-flex items-center p-2 hover:bg-gray-100 focus:bg-gray-100 rounded-lg">
             <span className="sr-only">User Menu</span>
             <div className="hidden md:flex md:flex-col md:items-end md:leading-tight">
-              <span className="font-semibold">Grace Simmons</span>
-              <span className="text-sm text-gray-600">Lecturer</span>
+              <span className="font-semibold">{adminName}</span>
+              <span className="text-sm text-gray-600">Rohit Rawat</span>
             </div>
-            <span className="h-12 w-12 ml-2 sm:ml-3 mr-2 bg-gray-100 rounded-full overflow-hidden">
-              <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="user profile photo" className="h-full w-full object-cover"/>
+            <span className={`h-12 w-12 ml-2 sm:ml-3 mr-2 ${getAvatarColor(adminName)} rounded-full overflow-hidden flex items-center justify-center`}>
+              <span className="text-white font-semibold text-lg">{getAvatarInitials(adminName)}</span>
             </span>
             <svg aria-hidden="true" viewBox="0 0 20 20" fill="currentColor" className="hidden sm:block h-6 w-6 text-gray-300">
               <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
